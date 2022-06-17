@@ -1,0 +1,224 @@
+\documentclass[english,course]{lecture}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+
+\title{Real Analysis Notes}
+\subtitle{An Introductory course in Real Analysis}
+\shorttitle{Kumaresan}
+\author{S Saivenkat}
+\email{ashwinvenkat510@gmail.com}
+\date{6}{17}{2022}
+\place{Chennai}
+\attn{A Math Major that won't shut up}
+
+\begin{document}
+
+\section{Real Number System}
+\subsection{Introduction}
+Let us list the basic properties of the Real number system that we take for granted;
+\begin{itemize}
+\item \textbf{Properties of addition}
+\begin{enumerate}
+\item \textbf{Associativity}
+$$ (a+b)+c =a+(b+c) \ \ \forall \ a,b,c \in \mathbb{R}$$
+\item \textbf{Commutativity}
+$$ a+b =b+a \ \ \forall \ a,b \in \mathbb{R}$$
+\item \textbf{Existence of Additive identity}
+$$ \exists \ 0 \in \mathbb{R} \ | \ a+0 =0+a =a  \ \ \forall \ a \in \mathbb{R}$$
+\item \textbf{Existence of Additive Inverse}
+$$ \exists \ a^{-1} \in \mathbb{R} \ | \ a+a^{-1} =a^{-1}+a =0  \ \ \forall \ a \in \mathbb{R}$$
+In this case;
+$$ a^{-1} = -a$$
+\end{enumerate}
+\item \textbf{Properties of Multiplication}
+\begin{enumerate}
+\item \textbf{Associativity}
+$$ (ab)c =a(b)c \ \ \forall \ a,b,c \in \mathbb{R}$$
+\item \textbf{Commutativity}
+$$ ab =ba \ \ \forall \ a,b \in \mathbb{R}$$
+\item \textbf{Existence of Multiplicative identity}
+$$ \exists \ 1 \in \mathbb{R} \ | \ a \cdot 1 =1 \cdot a =a  \ \ \forall \ a \in \mathbb{R}$$
+\item \textbf{Existence of multiplicative Inverse}
+$$ \exists \ a^{-1} \in \mathbb{R} \ | \ a \cdot a^{-1} =a^{-1} \cdot a =1  \ \ \forall \ a \neq 0 \in \mathbb{R}$$
+In this case;
+$$ a^{-1} = \frac{1}{a}$$
+\end{enumerate}
+\item \textbf{Distributive Property}
+This explains how multiplication and addition interact. Multiplication \textit{distributes} over addition;
+$$ a \cdot (b+c)=(b+c) \cdot a = ab+ac \ \ \forall \ a,b,c \in \mathbb{R}$$
+\end{itemize}
+Another important property of $\mathbb{R}$ pertains to the order relation, this property is called the \textbf{Law of Trichotomy} and states that for any 2 real numbers $x$ and $y$, exacting one of the following hold;
+\begin{enumerate}[label=\roman*)]
+\item $x \leq y$
+\item $y \leq x$
+\item $x = y$
+\end{enumerate}
+This is the property which lets us say that;
+$$ x \leq y \text{ and } y \leq x \Rightarrow x=y$$
+Other important facts about the order relation are;
+\begin{itemize}
+\item $ x < y \text{ and } y<z \Rightarrow x<z$
+\item $x<y \Rightarrow x+z < y+z \text{ where } z \in \mathbb{R}$
+\item $x<y \Rightarrow xz < yz \text{ where } z > 0 \in \mathbb{R} $
+\item $x<y \Rightarrow -y < -x $
+\item $x<y \Rightarrow x+z < y+z \text{ where } z \in \mathbb{R}$
+\item $x^{2} \geq 0 \text{ where } x \in \mathbb{R}$
+\item $ x > 0 \text{ and } y > 0 \Rightarrow xy > 0$
+\item $ 0 < x <y  \Rightarrow 0 < \frac{1}{y} < \frac{1}{x}$
+\end{itemize}
+
+\subsection{Upper and Lower Bounds}
+\textbf{Definition:} \\
+Consider a non-empty set $A \subset \mathbb{R}$. We say that $\alpha \in \mathbb{R}$ is an \textbf{Upper bound} of $A$ if and only if $\alpha$ is greater than or equal to every element of $A$. That is;
+$$ \alpha \geq x \ | \ \forall x \in A $$
+We say that $\alpha$ is not an upper bound, if there exists some element in $A$ that is greater than it. That is;
+$$ \exists \ y \in A \ | \ y > \alpha $$
+We call the sets with an upper bound as \textbf{Bounded above sets}. For a set to not be bounded above, for every $x \in \mathbb{R}$ there exists some element in $A$ which is greater than it, that is;
+$$ \forall \ x \in \mathbb{R} \ \exists \ y \in A \ (y \geq x) \ $$
+\textbf{Note:}
+Any element $\alpha^{\star} \geq \alpha$ is also an upper bound.
+\margintext{There is no criteria that the upper bound needs to be part of the set itself. An upper bound which is part of the set itself is called the maximum. The maximum is unique if it exists.}
+
+Consider a non-empty set $A \subset \mathbb{R}$. We say that $\beta \in \mathbb{R}$ is an \textbf{Lower bound} of $A$ if and only if $\beta$ is lower than or equal to every element of $A$. That is;
+$$ \beta \leq x \ | \ \forall x \in A $$
+We say that $\beta$ is not an lower bound, if there exists some element in $A$ that is lesser than it. That is;
+$$ \exists \ y \in A \ | \ y < \beta $$
+We call the sets with an lower bound as \textbf{Bounded below sets}. For a set to not be bounded below, for every $x \in \mathbb{R}$ there exists some element in $A$ which is lesser than it, that is;
+$$ \forall \ x \in \mathbb{R} \ \exists \ y \in A \ (y \leq x) \ $$
+\textbf{Note:}
+Any element $\beta^{\star} \leq \beta$ is also an lower bound.
+
+\subsection{Least Upper and Greatest Lower Bound}
+\textbf{Definition} \\
+Consider a non-empty set $A \subset \mathbb{R}$. We say that $\alpha$ is a \textbf{Least Upper Bound} (LUB) if and only if 
+\begin{itemize}
+\item $\alpha$ is an upper bound of $A$.
+\item $\forall \ \gamma < \alpha \ \gamma$ is not an upper bound, that is;
+$$ \exists \ x \in A \ | \ x > \gamma$$
+\end{itemize}
+Similarly, we say that $\beta$ is a \textbf{Greatest Lower Bound} (GLB) if and only if 
+\begin{itemize}
+\item $\beta$ is an lower bound of $A$.
+\item $\forall \ \gamma > \beta \ \gamma$ is not an lower bound, that is;
+$$ \exists \ x \in A \ | \ x < \gamma$$
+\end{itemize}
+
+These definitions are important and lead to one of the most fundamental properties of $\mathbb{R}$;
+\begin{center}
+\textbf{Least Upper Bound Property of $\mathbb{R}$} \\
+\emph{Given any non-empty subset of $\mathbb{R}$ that is bounded above, there exists an $\alpha \in \mathbb{R}$ such that $\alpha$ is the Least upper bound of that set.}
+\end{center}
+This is also known as the order-completeness of $\mathbb{R}$.
+
+\subsection{Applications of LUB Property}
+Most results of analysis depend on this property for the proof. Let us look into them.
+
+\subsubsection{Archimedean Property}
+Given $x,y \in \mathbb{R}$ such that $x > 0$, there exists an $n \in \mathbb{N}$ such that 
+$$ nx > y $$
+Let us look at the proof for this; let us look at the set;
+$$ S = \lbrace nx \ | \ n \in \mathbb{N} \rbrace $$
+Let us assume the contradictory, let us say that there exists no $n \in \mathbb{N}$ such that:
+$$ nx > y $$
+This implies that;
+$$ nx < y \ \forall \ n \in \mathbb{N} $$
+Therefore, $y$ is an upper bound of $S$. Since we also know that $S \subset \mathbb{R}$, based on LUB property, $S$ contains a least upper bound say $m$.
+$$ nx < m < y \ \forall \ n \in \mathbb{N} $$
+Let us now look at the number $m-x$. Clearly since $x>0$;
+$$ m-x < m $$
+This means that $m-x$ is not an upper bound of the set $S$, therefore;
+$$ \exists \ n \in \mathbb{N} \ | \ m-x < nx $$
+$$ \rightarrow m-x+x < nx+x $$
+$$ \rightarrow m < (n+1)x $$
+Since $n+1 \in \mathbb{N}$ we see that;
+$$ (n+1)x \in S $$
+But this means we have found an element in $S$ which is greater than our LUB $m$ and thus we have a contradiction. This tells us that 
+$$ \exists \ n \in \mathbb{N} \ | \ nx > y$$
+\begin{center}
+\emph{Hence Proved}
+\end{center}
+Using this property we can also easily prove that the set of all natural numbers is not bounded from above. All we have to do is take $x$ as 1.
+$$ nx > y $$
+$$ \rightarrow n(1) > y $$
+$$ \rightarrow n > y $$
+This says for any real number $y$, where always exists some natural number greater than it.
+\\
+\textbf{Theorem:} \\
+Given an $x>0$, There exists $n \in \mathbb{N}$;
+$$ x > \frac{1}{n}$$
+Furthermore, if $x \geq 0$, then $x=0$ if and only if $x < \frac{1}{n}$ for all natural numbers. \\
+\textit{Proof:} \\
+First part of it is direct application of Archimedean principle. Take $y=1$ and we have;
+$$ \exists \ n \in \mathbb{N} \ | \ nx > 1$$
+$$ \rightarrow x > \frac{1}{n} $$
+Hence shown. Now the second part is fairly straightforward as well. Assume $x=0$, then obviously
+$$ x < \frac{1}{n} \ \forall \ n \in \mathbb{N}$$
+Now assume that $x \geq 0$ and 
+$$ x < \frac{1}{n} \ \forall \ n \in \mathbb{N}$$
+Let us try assuming that $x>0$, if so then based on previous proof;
+\margintext{This is used to show that 2 numbers are equal. That is, if you can show that their difference is always less than $\frac{1}{n}$ then they must be the same.}
+$$ \exists \ n \in \mathbb{N} \ | \ x > \frac{1}{n}$$
+This contradicts the original assumption therefore, 
+$$ x = 0$$
+\begin{center}
+\emph{Hence Proven}
+\end{center}
+\\
+\textbf{Proposition:} \\
+The set of integers $\mathbb{Z}$ is neither bounded above nor below. \\
+\textit{Proof:} \\
+Assume that there exists an upper bound say $\alpha$. Then clearly $\alpha$ must be greater than 0 since;
+$$ 0 \in \mathbb{Z} $$
+$$ \rightarrow 0 \geq \alpha$$
+Now take $x=1$ and $y=\alpha$, based on Archimedean property;
+$$ \exists \ n \in \mathbb{N} \ | \ n > \alpha $$
+We know that;
+$$ n \in \mathbb{Z} $$
+Therefore, this contradicts the assumption that $\alpha$ is an upper bound, therefore telling us that $\mathbb{Z}$ has no upper bound.
+Assume that there exists a lower bound say $\beta$. Then clearly $\beta$ must be less than 0 since;
+$$ 0 \in \mathbb{Z} $$
+$$ \rightarrow 0 \leq \beta$$
+Now take $x=1$ and $y=-\beta$, based on Archimedean property;
+$$ \exists \ n \in \mathbb{N} \ | \ n > -\beta $$
+$$ \rightarrow -n < \beta $$
+We know that;
+$$ -n \in \mathbb{Z} $$
+Therefore, this contradicts the assumption that $\beta$ is a lower bound, therefore telling us that $\mathbb{Z}$ has no lower bound.
+\begin{center}
+\emph{Hence Proven}
+\end{center}
+\\ 
+\textbf{Greatest Integer Function:} \\
+Let $x \in \mathbb{R}$, then there exists $m \in \mathbb{Z}$ such that; 
+$$ m \leq x \leq m+1 $$
+\textit{Proof} \\
+Let us consider the set;
+$$ S = \lbrace q \in \mathbb{Z} \ | \ q \leq x \rbrace $$
+$S$ is a subset of $\mathbb{R}$ and also contains an upper bound $q$. Therefore, based on LUB property we can say that $S$ as a least upper bound say $m$. 
+$$ m \leq x $$
+Now let us look at $m+1$, we know that
+$$ m+1 \in \mathbb{Z} \text{ and } m+1 > m$$
+Assume that $m+1 \in S$, then this contradicts the fact that the LUB of $S$ is $m$. Therefore, the only logical conclusion is that;
+$$ m+1 \notin S $$
+$$ \rightarrow m+1 > x $$
+This gives us the relation;
+$$ m \leq x \leq m+1$$
+\begin{center}
+\emph{Hence Proven}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
