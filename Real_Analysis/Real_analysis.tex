@@ -1,0 +1,136 @@
+\documentclass[english,course]{lecture}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+
+\title{Real Analysis Notes}
+\subtitle{An Introductory course in Real Analysis}
+\shorttitle{Kumaresan}
+\author{S Saivenkat}
+\email{ashwinvenkat510@gmail.com}
+\date{6}{17}{2022}
+\place{Chennai}
+\attn{A Math Major that won't shut up}
+
+\begin{document}
+
+\section{Real Number System}
+\subsection{Introduction}
+Let us list the basic properties of the Real number system that we take for granted;
+\begin{itemize}
+\item \textbf{Properties of addition}
+\begin{enumerate}
+\item \textbf{Associativity}
+$$ (a+b)+c =a+(b+c) \ \ \forall \ a,b,c \in \mathbb{R}$$
+\item \textbf{Commutativity}
+$$ a+b =b+a \ \ \forall \ a,b \in \mathbb{R}$$
+\item \textbf{Existence of Additive identity}
+$$ \exists \ 0 \in \mathbb{R} \ | \ a+0 =0+a =a  \ \ \forall \ a \in \mathbb{R}$$
+\item \textbf{Existence of Additive Inverse}
+$$ \exists \ a^{-1} \in \mathbb{R} \ | \ a+a^{-1} =a^{-1}+a =0  \ \ \forall \ a \in \mathbb{R}$$
+In this case;
+$$ a^{-1} = -a$$
+\end{enumerate}
+\item \textbf{Properties of Multiplication}
+\begin{enumerate}
+\item \textbf{Associativity}
+$$ (ab)c =a(b)c \ \ \forall \ a,b,c \in \mathbb{R}$$
+\item \textbf{Commutativity}
+$$ ab =ba \ \ \forall \ a,b \in \mathbb{R}$$
+\item \textbf{Existence of Multiplicative identity}
+$$ \exists \ 1 \in \mathbb{R} \ | \ a \cdot 1 =1 \cdot a =a  \ \ \forall \ a \in \mathbb{R}$$
+\item \textbf{Existence of multiplicative Inverse}
+$$ \exists \ a^{-1} \in \mathbb{R} \ | \ a \cdot a^{-1} =a^{-1} \cdot a =1  \ \ \forall \ a \neq 0 \in \mathbb{R}$$
+In this case;
+$$ a^{-1} = \frac{1}{a}$$
+\end{enumerate}
+\item \textbf{Distributive Property}
+This explains how multiplication and addition interact. Multiplication \textit{distributes} over addition;
+$$ a \cdot (b+c)=(b+c) \cdot a = ab+ac \ \ \forall \ a,b,c \in \mathbb{R}$$
+\end{itemize}
+Another important property of $\mathbb{R}$ pertains to the order relation, this property is called the \textbf{Law of Trichotomy} and states that for any 2 real numbers $x$ and $y$, exacting one of the following hold;
+\begin{enumerate}[label=\roman*)]
+\item $x \leq y$
+\item $y \leq x$
+\item $x = y$
+\end{enumerate}
+This is the property which lets us say that;
+$$ x \leq y \text{ and } y \leq x \Rightarrow x=y$$
+Other important facts about the order relation are;
+\begin{itemize}
+\item $ x < y \text{ and } y<z \Rightarrow x<z$
+\item $x<y \Rightarrow x+z < y+z \text{ where } z \in \mathbb{R}$
+\item $x<y \Rightarrow xz < yz \text{ where } z > 0 \in \mathbb{R} $
+\item $x<y \Rightarrow -y < -x $
+\item $x<y \Rightarrow x+z < y+z \text{ where } z \in \mathbb{R}$
+\item $x^{2} \geq 0 \text{ where } x \in \mathbb{R}$
+\item $ x > 0 \text{ and } y > 0 \Rightarrow xy > 0$
+\item $ 0 < x <y  \Rightarrow 0 < \frac{1}{y} < \frac{1}{x}$
+\end{itemize}
+
+\subsection{Upper and Lower Bounds}
+\textbf{Definition:} \\
+Consider a non-empty set $A \subset \mathbb{R}$. We say that $\alpha \in \mathbb{R}$ is an \textbf{Upper bound} of $A$ if and only if $\alpha$ is greater than or equal to every element of $A$. That is;
+$$ \alpha \geq x \ | \ \forall x \in A $$
+We say that $\alpha$ is not an upper bound, if there exists some element in $A$ that is greater than it. That is;
+$$ \exists \ y \in A \ | \ y > \alpha $$
+We call the sets with an upper bound as \textbf{Bounded above sets}. For a set to not be bounded above, for every $x \in \mathbb{R}$ there exists some element in $A$ which is greater than it, that is;
+$$ \forall \ x \in \mathbb{R} \ \exists \ y \in A \ (y \geq x) \ $$
+\textbf{Note:}
+Any element $\alpha^{\star} \geq \alpha$ is also an upper bound.
+\margintext{There is no criteria that the upper bound needs to be part of the set itself. An upper bound which is part of the set itself is called the maximum. The maximum is unique if it exists.}
+
+Consider a non-empty set $A \subset \mathbb{R}$. We say that $\beta \in \mathbb{R}$ is an \textbf{Lower bound} of $A$ if and only if $\beta$ is lower than or equal to every element of $A$. That is;
+$$ \beta \leq x \ | \ \forall x \in A $$
+We say that $\beta$ is not an lower bound, if there exists some element in $A$ that is lesser than it. That is;
+$$ \exists \ y \in A \ | \ y < \beta $$
+We call the sets with an lower bound as \textbf{Bounded below sets}. For a set to not be bounded below, for every $x \in \mathbb{R}$ there exists some element in $A$ which is lesser than it, that is;
+$$ \forall \ x \in \mathbb{R} \ \exists \ y \in A \ (y \leq x) \ $$
+\textbf{Note:}
+Any element $\beta^{\star} \leq \beta$ is also an lower bound.
+
+\subsection{Least Upper and Greatest Lower Bound}
+\textbf{Definition} \\
+Consider a non-empty set $A \subset \mathbb{R}$. We say that $\alpha$ is a \textbf{Least Upper Bound} (LUB) if and only if 
+\begin{itemize}
+\item $\alpha$ is an upper bound of $A$.
+\item $\forall \ \gamma < \alpha \ \gamma$ is not an upper bound, that is;
+$$ \exists \ x \in A \ | \ x > \gamma$$
+\end{itemize}
+Similarly, we say that $\beta$ is a \textbf{Greatest Lower Bound} (GLB) if and only if 
+\begin{itemize}
+\item $\beta$ is an lower bound of $A$.
+\item $\forall \ \gamma > \beta \ \gamma$ is not an lower bound, that is;
+$$ \exists \ x \in A \ | \ x < \gamma$$
+\end{itemize}
+
+These definitions are important and lead to one of the most fundamental properties of $\mathbb{R}$;
+\begin{center}
+\textbf{Least Upper Bound Property of $\mathbb{R}$} \\
+\emph{Given any non-empty subset of $\mathbb{R}$ that is bounded above, there exists an $\alpha \in \mathbb{R}$ such that $\alpha$ is the Least upper bound of that set.}
+\end{center}
+This is also known as the order-completeness of $\mathbb{R}$.
+
+\subsection{Applications of LUB Property}
+Most results of analysis depend on this property for the proof. Let us look into them.
+
+\subsubsection{Archimedean Property}
+Given $x,y \in \mathbb{R}$ there exists an $n \in \mathbb{N}$ such that 
+$$ nx > y $$
+Let us look at the proof for this;
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
